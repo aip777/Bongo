@@ -4,21 +4,23 @@ class Person(object):
         self.first_name = first_name
         self.last_name = last_name
         self.father = father
-person_a = Person('User', '1','3')
+person_a = Person('User', '1', 'Vd')
 person_b = Person('User', '2', person_a)
 
-dictionaryThree = {'key1': 1, 'key2': { 'key3': 1, 'key4': { 'key5': 4, 'user':person_b, "user":{'first_name':5, "last_name":5, "father":{'first_name':5, "last_name":5, "father":5}}}}}
+def con(x):
+    return dict((key, getattr(x, key)) for key in dir(x) if key not in dir(x.__class__))
+
+dictionaryThree = {'key1': 1, 'key2': { 'key3': 1, 'key4': { 'key5': 4, 'user': person_b }}}
 
 def print_depth(param, run=0):
     for key, value in param.items():
         print(key, run + 1)
         if isinstance(value, dict):
             print_depth(value, run=run+1)
+        if isinstance(value, Person):
+            if isinstance(con(value), dict):
+                print_depth(vars(value), run=run + 1)
 print_depth(dictionaryThree)
-
-
-
-
 
 
 

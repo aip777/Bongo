@@ -36,8 +36,20 @@ foundation.leftNode.leftNode = Tree(4)
 foundation.leftNode.rightNode = Tree(5)
 foundation.rightNode.leftNode = Tree(6)
 foundation.rightNode.rightNode = Tree(7)
-print ("6, 7 = %d" % (lca(foundation, 6, 7)))
-print ("3, 7 = %d" % (lca(foundation, 3, 7)))
+foundation.leftNode.leftNode = Tree(8)
+foundation.leftNode.rightNode = Tree(9)
+
+node1 = 6
+node2 = 7
+variable = lca(foundation, node1, node2)
+print("Lca of %d & %d is %d" % (node1, node2, variable))
+
+node1 = 3
+node2 = 7
+variable = lca(foundation, node1, node2)
+print("Lca of %d & %d is %d" % (node1, node2, variable))
+
+
 
 first_number = int(input("Enter Your First Number: "))
 second_number = int(input("Enter Your Second Number: "))
